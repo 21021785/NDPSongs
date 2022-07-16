@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#292929"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".ThirdActivity">
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/mali_semibold"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:text="Songs of the\n Little Red Dot"
+        android:textColor="@color/white"
+        android:textSize="34sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/red" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tvSongTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/mali_semibold"
+                android:text="Song title:"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/etUpdateSongTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/grey"
+                android:ems="10"
+                android:fontFamily="@font/mali_semibold"
+                android:hint="Enter Song Title"
+                android:inputType="textPersonName"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey" />
+
+            <TextView
+                android:id="@+id/tvSingers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/mali_semibold"
+                android:text="Singer(s):"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/etUpdateSingers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/grey"
+                android:ems="10"
+                android:fontFamily="@font/mali_semibold"
+                android:hint="Enter Singer Name(s)"
+                android:inputType="textPersonName"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey" />
+
+            <TextView
+                android:id="@+id/singerNote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_light"
+                android:text="@string/note"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tvYear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/mali_semibold"
+                android:text="Year:"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/etUpdateYear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/grey"
+                android:ems="10"
+                android:fontFamily="@font/mali_semibold"
+                android:hint="Enter Year of Release"
+                android:inputType="textPersonName"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey" />
+
+            <TextView
+                android:id="@+id/tvStars"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/mali_semibold"
+                android:text="Star Rating:"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+
+            <RadioGroup
+                android:id="@+id/starUpdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/updateStar1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/mali_semibold"
+                    android:text="1"
+                    android:textColor="@color/white" />
+
+                <RadioButton
+                    android:id="@+id/updateStar2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/mali_semibold"
+                    android:text="2"
+                    android:textColor="@color/white" />
+
+                <RadioButton
+                    android:id="@+id/updateStar3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/mali_semibold"
+                    android:text="3"
+                    android:textColor="@color/white" />
+
+                <RadioButton
+                    android:id="@+id/updateStar4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/mali_semibold"
+                    android:text="4"
+                    android:textColor="@color/white" />
+
+                <RadioButton
+                    android:id="@+id/updateStar5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/mali_semibold"
+                    android:text="5"
+                    android:textColor="@color/white" />
+            </RadioGroup>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnUpdate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="2dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/red"
+                    android:fontFamily="@font/mali_semibold"
+                    android:text="Update" />
+
+                <Button
+                    android:id="@+id/btnDelete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/red"
+                    android:fontFamily="@font/mali_semibold"
+                    android:text="Delete" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnCancel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/red"
+                android:fontFamily="@font/mali_semibold"
+                android:text="Cancel" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

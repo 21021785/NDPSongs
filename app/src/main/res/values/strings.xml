@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">NDP Songs</string>
+    <string name="note">If there is more than 1 singer, please input Singer 1/Singer 2/...</string>
+    <string-array name="spinnerItems">
+        <item>All Songs</item>
+    </string-array>
+</resources>

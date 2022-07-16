@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#292929"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".SecondActivity">
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/mali_semibold"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:text="Songs of the\n Little Red Dot"
+        android:textColor="@color/white"
+        android:textSize="34sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/red" />
+
+    <Button
+        android:id="@+id/btnShow5Stars"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/mali_semibold"
+        android:backgroundTint="@color/red"
+        android:text="Show all songs with 5 stars" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:entries="@array/spinnerItems" />
+
+    <TextView
+        android:id="@+id/tvSIdeNote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_light"
+        android:gravity="center"
+        android:text="See something wrong? Click on the song to edit it!"
+        android:textColor="@color/white"
+        android:textSize="12sp" />
+
+    <ListView
+        android:id="@+id/lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textColor="@color/white"/>
+
+</LinearLayout>
