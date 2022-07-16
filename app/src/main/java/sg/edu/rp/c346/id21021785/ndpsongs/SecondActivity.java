@@ -51,6 +51,18 @@ public class SecondActivity extends AppCompatActivity {
             }
         });
 
+        show5Stars.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DBHelper dbh = new DBHelper(SecondActivity.this);
+                al.clear();
+                al.addAll(dbh.getAll5StarSongs());
+
+
+                aa.notifyDataSetChanged();
+            }
+        });
+
 
     }
 

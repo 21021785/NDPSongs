@@ -118,10 +118,37 @@ public class DBHelper extends SQLiteOpenHelper {
         ArrayList<Song> songs = new ArrayList<Song>();
 
         SQLiteDatabase db = this.getReadableDatabase();
-        String[] columns= {COLUMN_ID, COLUMN_YEAR};
+        String[] columns= {COLUMN_ID, COLUMN_TITLE, COLUMN_SINGER, COLUMN_YEAR, COLUMN_STARS};
         String condition = COLUMN_YEAR + " =";
         String yearToStr = year + "";
         String[] args = { yearToStr};
+        Cursor cursor = db.query(TABLE_SONGS, columns, condition, args,
+                null, null, null, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                int id = cursor.getInt(0);
+                String titleCurrent = cursor.getString(1);
+                String singerCurrent = cursor.getString(2);
+                int yearCurrent = Integer.parseInt(cursor.getString(3));
+                int starsCurrent = Integer.parseInt(cursor.getString(4));
+                Song song = new Song(titleCurrent, singerCurrent, yearCurrent, starsCurrent);
+                songs.add(song);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return songs;
+    }
+
+    public ArrayList<Song> getAll5StarSongs() {
+        ArrayList<Song> songs = new ArrayList<Song>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] columns= {COLUMN_ID, COLUMN_TITLE, COLUMN_SINGER, COLUMN_YEAR, COLUMN_STARS};
+        String condition = COLUMN_STARS + " = ?";
+        String starToStr = 5 + "";
+        String[] args = { starToStr};
         Cursor cursor = db.query(TABLE_SONGS, columns, condition, args,
                 null, null, null, null);
 
