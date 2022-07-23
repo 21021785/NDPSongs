@@ -59,6 +59,7 @@ public class ThirdActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 DBHelper dbh = new DBHelper(ThirdActivity.this);
+                int id = songDetails.getId();
                 String newTitle = etUpdateTitle.getText().toString();
                 String newSinger = etUpdateSinger.getText().toString();
                 String newYear = etUpdateYear.getText().toString();
@@ -79,7 +80,7 @@ public class ThirdActivity extends AppCompatActivity {
                     newStarRating = 5;
                 }
 
-                songDetails.setSongContent(newTitle, newSinger, newYearToInt, newStarRating);
+                songDetails.setSongContent(id, newTitle, newSinger, newYearToInt, newStarRating);
                 dbh.updateSong(songDetails);
                 dbh.close();
                 finish();
@@ -90,7 +91,7 @@ public class ThirdActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 DBHelper dbh = new DBHelper(ThirdActivity.this);
-                dbh.deleteSong(songDetails.get_id());
+                dbh.deleteSong(songDetails.getId());
                 finish();
             }
         });

@@ -26,13 +26,13 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createNoteTableSql = "CREATE TABLE " + TABLE_SONGS + "("
+        String createSongTableSql = "CREATE TABLE " + TABLE_SONGS + "("
                 + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + COLUMN_TITLE + " TEXT,"
                 + COLUMN_SINGER + " TEXT,"
                 + COLUMN_YEAR + " INTEGER,"
                 + COLUMN_STARS + " INTEGER ) ";
-        db.execSQL(createNoteTableSql);
+        db.execSQL(createSongTableSql);
         Log.i("info", "created tables");
 
         //Dummy records, to be inserted when the database is created
@@ -81,7 +81,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 String singerCurrent = cursor.getString(2);
                 int yearCurrent = cursor.getInt(3);
                 int starsCurrent = cursor.getInt(4);
-                Song song = new Song(titleCurrent, singerCurrent, yearCurrent, starsCurrent);
+                Song song = new Song(id, titleCurrent, singerCurrent, yearCurrent, starsCurrent);
                 songs.add(song);
             } while (cursor.moveToNext());
         }
@@ -93,22 +93,24 @@ public class DBHelper extends SQLiteOpenHelper {
     public int updateSong(Song song) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
+        int id = song.getId();
         values.put(COLUMN_TITLE, song.getTitle());
         values.put(COLUMN_SINGER, song.getSingers());
         values.put(COLUMN_YEAR, song.getYear());
         values.put(COLUMN_STARS, song.getStar());
         String condition = COLUMN_ID + "= ?";
-        String[] args = {String.valueOf(song.get_id())};
+        String[] args = {String.valueOf(song.getId())};
         int result = db.update(TABLE_SONGS, values, condition, args);
         db.close();
+        Log.d("updateSongresult", result + "");
         return result;
 
     }
 
-    public int deleteSong(int _id){
+    public int deleteSong(int id){
         SQLiteDatabase db = this.getWritableDatabase();
         String condition = COLUMN_ID + "= ?";
-        String[] args = {String.valueOf(_id)};
+        String[] args = {String.valueOf(id)};
         int result = db.delete(TABLE_SONGS, condition, args);
         db.close();
         return result;
@@ -132,7 +134,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 String singerCurrent = cursor.getString(2);
                 int yearCurrent = Integer.parseInt(cursor.getString(3));
                 int starsCurrent = Integer.parseInt(cursor.getString(4));
-                Song song = new Song(titleCurrent, singerCurrent, yearCurrent, starsCurrent);
+                Song song = new Song(id, titleCurrent, singerCurrent, yearCurrent, starsCurrent);
                 songs.add(song);
             } while (cursor.moveToNext());
         }
@@ -159,7 +161,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 String singerCurrent = cursor.getString(2);
                 int yearCurrent = Integer.parseInt(cursor.getString(3));
                 int starsCurrent = Integer.parseInt(cursor.getString(4));
-                Song song = new Song(titleCurrent, singerCurrent, yearCurrent, starsCurrent);
+                Song song = new Song(id, titleCurrent, singerCurrent, yearCurrent, starsCurrent);
                 songs.add(song);
             } while (cursor.moveToNext());
         }

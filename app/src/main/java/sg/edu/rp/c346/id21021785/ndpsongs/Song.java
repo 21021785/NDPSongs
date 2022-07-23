@@ -4,21 +4,22 @@ import java.io.Serializable;
 
 public class  Song implements Serializable {
 
-    private int _id;
+    private int id;
     private String title;
     private String singers;
     private int year;
     private int stars;
 
-    public Song(String title, String singers, int years, int stars  ) {
+    public Song(int id, String title, String singers, int years, int stars  ) {
+        this.id = id;
         this.title = title;
         this.singers = singers;
         this.year = years;
         this.stars = stars;
     }
 
-    public int get_id() {
-        return _id;
+    public int getId() {
+        return id;
     }
 
     public String getTitle() {
@@ -37,7 +38,8 @@ public class  Song implements Serializable {
         return stars;
     }
 
-    public void setSongContent(String newTitle, String newSinger, int newYear, int newStars) {
+    public void setSongContent(int id, String newTitle, String newSinger, int newYear, int newStars) {
+        this.id = id;
         this.title = newTitle;
         this.singers = newSinger;
         this.year = newYear;

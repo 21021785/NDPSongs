@@ -19,7 +19,8 @@ public class SecondActivity extends AppCompatActivity {
     Spinner yearSelection;
     ArrayList<Song> al;
     ListView lv;
-    ArrayAdapter<Song> aa;
+    //ArrayAdapter<Song> aa;
+    CustomAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,13 +32,15 @@ public class SecondActivity extends AppCompatActivity {
         lv = findViewById(R.id.lv);
 
         al = new ArrayList<Song>();
-        aa = new ArrayAdapter<Song>(this, R.layout.listview, al);
-        lv.setAdapter(aa);
+        //aa = new ArrayAdapter<Song>(this, R.layout.listview, al);
+        //lv.setAdapter(aa);
+        adapter = new CustomAdapter(this, R.layout.row, al);
+        lv.setAdapter(adapter);
 
         DBHelper dbh = new DBHelper(SecondActivity.this);
         al.clear();
         al.addAll(dbh.getAllSongs());
-        aa.notifyDataSetChanged();
+        adapter.notifyDataSetChanged();
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -59,9 +62,29 @@ public class SecondActivity extends AppCompatActivity {
                 al.addAll(dbh.getAll5StarSongs());
 
 
-                aa.notifyDataSetChanged();
+                adapter.notifyDataSetChanged();
             }
         });
+
+        /*
+        yearSelection.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                switch (position) {
+                    case 0:
+                        al.clear();
+                        al.addAll(dbh.getAllSongs());
+                        adapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+         */
 
 
     }
@@ -73,7 +96,7 @@ public class SecondActivity extends AppCompatActivity {
         DBHelper dbh = new DBHelper(SecondActivity.this);
         al.clear();
         al.addAll(dbh.getAllSongs());
-        aa.notifyDataSetChanged();
+        adapter.notifyDataSetChanged();
     }
 
 }
